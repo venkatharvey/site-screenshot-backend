@@ -34,7 +34,7 @@ const init = async () => {
           deviceScaleFactor: 1,
         });
 
-        const image= await delay(2000).then(()=>page.screenshot({
+        const image= await delay(30*1000).then(()=>page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
         }));
