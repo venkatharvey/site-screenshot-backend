@@ -12,6 +12,9 @@ const init = async () => {
       cors: true,
     },
   });
+  function delay(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
 
 
   server.route([{
