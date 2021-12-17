@@ -34,10 +34,10 @@ const init = async () => {
           deviceScaleFactor: 1,
         });
 
-        const image= await page.screenshot({
+        const image= await delay(2000).then(()=>page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
-        });
+        }));
         await browser.close();
         return image;
       }
