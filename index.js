@@ -26,7 +26,7 @@ const init = async () => {
         });
         const page = await browser.newPage();
         try{
-        await page.goto(`${url}`);
+        await page.goto(`${url}`,{"waitUntil" : "networkidle2"});
         await page.setViewport({
           quality:quality,
           height: height,
@@ -36,7 +36,7 @@ const init = async () => {
         const image=await Promise.race([page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
-        }), new Promise((resolve, reject) => setTimeout(reject,30*1000))]);
+        }), new Promise((resolve, reject) => setTimeout(reject,1000))]);
 
 //         const image = await page.screenshot({
 //           type:`${format}`,
