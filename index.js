@@ -12,10 +12,7 @@ const init = async () => {
       cors: true,
     },
   });
-  function delay(ms) {
-    return new Promise(r => setTimeout(r, ms));
-}
-
+  
 
   server.route([{
       method: "POST",
@@ -37,10 +34,10 @@ const init = async () => {
           deviceScaleFactor: 1,
         });
 
-        const image= await delay(30*1000).then(()=>page.screenshot({
+        const image= await setTimeout(async()=>await page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
-        }));
+        }),30*1000);
         await browser.close();
         return image;
       }
