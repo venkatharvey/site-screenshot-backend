@@ -33,17 +33,21 @@ const init = async () => {
           width: width,
           deviceScaleFactor: 1,
         });
-
-        const image= await setTimeout(async()=>await page.screenshot({
+        const image=await Promise.race([page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
-        }),30*1000);
+        }), new Promise((resolve, reject) => setTimeout(reject,10*1000))]);
+
+//         const image = await page.screenshot({
+//           type:`${format}`,
+//           fullPage:fulscr,
+//         });
         await browser.close();
         return image;
       }
-        catch{
+        catch(error){
           await browser.close();
-          return;
+          return error;
         }
       },
     },
