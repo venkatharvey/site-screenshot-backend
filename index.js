@@ -26,7 +26,7 @@ const init = async () => {
         });
         const page = await browser.newPage();
         try{
-        await page.goto(`${url}`,{"waitUntil" : "networkidle2"});
+        await page.goto(`${url}`,{"waitUntil" : "networkidle0"});
         await page.setViewport({
           quality:quality,
           height: height,
