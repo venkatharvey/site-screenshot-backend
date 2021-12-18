@@ -36,7 +36,7 @@ const init = async () => {
         const image=await Promise.race([page.screenshot({
           type:`${format}`,
           fullPage:fulscr,
-        }), new Promise((resolve, reject) => setTimeout(reject,10*1000))]);
+        }), new Promise((resolve, reject) => setTimeout(reject,30*1000))]);
 
 //         const image = await page.screenshot({
 //           type:`${format}`,
